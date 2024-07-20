@@ -12,7 +12,9 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: "*", // Be more specific in production
+    origin: [
+      "http://localhost:3000"
+    ], // Be more specific in production
     methods: ["GET", "POST"]
   }
 });
