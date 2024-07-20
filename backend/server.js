@@ -13,7 +13,7 @@ const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
     origin: [
-      "http://localhost:3000"
+      "http://localhost:3000","https://course-project-ashen.vercel.app/"
     ], // Be more specific in production
     methods: ["GET", "POST"]
   }
