@@ -2,7 +2,7 @@
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 dotenv.config();
-const User = require('../models/UserSchema'); // Ensure you import the User model
+const User = require('../models/UserSchema'); 
 
 module.exports = async function(req, res, next) {
   const token = req.header('x-auth-token');
@@ -14,7 +14,7 @@ module.exports = async function(req, res, next) {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
     // Check if the token has expired
-    const currentTime = Math.floor(Date.now() / 1000); // Current time in seconds
+    const currentTime = Math.floor(Date.now() / 1000); 
     if (decoded.exp < currentTime) {
       return res.status(401).json({ msg: 'Token has expired' });
     }
